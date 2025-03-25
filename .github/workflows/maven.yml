@@ -20,4 +20,10 @@ jobs:
         distribution: 'temurin'
   
     - name: Run Tests
-      run: mvn clean test
+      run: mvn clean test                                                        
+    - name: Upload reports
+      if: always()
+      uses: actions/upload-article@v4
+      with:
+        name: test-result
+        path: target/reports
